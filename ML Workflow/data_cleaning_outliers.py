@@ -54,3 +54,25 @@ df = pd.concat(
     [df_filtered_numeric, df.loc[non_outlier_condition, categorical_features]],
     axis=1
 )
+
+
+"""
+    PRO TIPS     
+
+Jika Anda tidak ingin menghapus outliers seperti contoh di atas, silakan gunakan metode agregasi seperti berikut.
+
+
+```
+median = df['column_name'].median()
+df['column_name'] = df['column_name'].apply(lambda x: median if x < (Q1 - 1.5  IQR) or x > (Q3 + 1.5  IQR) else x)
+
+```
+atau
+
+```
+# Mengganti outlier dengan nilai batas terdekat
+df['column_name'] = df['column_name'].apply(lambda x: (Q1 - 1.5  IQR) if x < lower_bound else (Q3 + 1.5  IQR) if x > (Q3 + 1.5 * IQR) else x)
+ 
+```
+
+"""
