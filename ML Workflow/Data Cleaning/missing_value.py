@@ -1,6 +1,6 @@
 import pandas as pd
 
-train = pd.read_csv("ML Workflow/Iris.csv")
+train = pd.read_csv("ML Workflow/house_prices.csv")
 train.info()
 
 # Menampilkan ringkasan informasi dari dataset

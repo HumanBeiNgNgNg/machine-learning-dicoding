@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import OrdinalEncoder
 
-df = pd.read_csv("ML Workflow/Iris.csv")
+df = pd.read_csv("ML Workflow/house_prices.csv")
 
 # Identify categorical features
 category_features = df.select_dtypes(include=['object']).columns

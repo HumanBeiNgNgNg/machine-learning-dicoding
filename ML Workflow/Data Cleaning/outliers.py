@@ -2,7 +2,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-df = pd.read_csv("ML Workflow/Iris.csv")
+df = pd.read_csv("ML Workflow/house_prices.csv")
 
 numeric_features = df.select_dtypes(include=['number']).columns
 

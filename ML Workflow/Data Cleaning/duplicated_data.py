@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv("ML Workflow/Iris.csv")
+df = pd.read_csv("ML Workflow/house_prices.csv")
 
 # Mengidentifikasi baris duplikat
 duplicates = df.duplicated()

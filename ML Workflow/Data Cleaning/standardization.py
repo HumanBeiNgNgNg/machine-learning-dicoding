@@ -3,7 +3,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
 
-df = pd.read_csv("ML Workflow/Iris.csv")
+df = pd.read_csv("ML Workflow/house_prices.csv")
 
 # Select numerical features
 numeric_features = df.select_dtypes(include=['number']).columns
