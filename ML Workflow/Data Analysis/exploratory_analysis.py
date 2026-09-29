@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 from sklearn.preprocessing import LabelEncoder
 
 df = pd.read_csv("ML Workflow/house_prices.csv")
@@ -61,3 +62,36 @@ for j in range(i + 1, len(axes)):
 # Menyesuaikan layout agar lebih rapi
 plt.tight_layout()
 plt.show()
+
+
+# ==============================
+# Selected Column Distribution
+# ==============================
+
+# Visualisasi distribusi data untuk beberapa kolom
+columns_to_plot = ['OverallQual', 'YearBuilt', 'LotArea', 'SaleType', 'SaleCondition']
+ 
+plt.figure(figsize=(15, 10))
+for i, column in enumerate(columns_to_plot, 1):
+    plt.subplot(2, 3, i)
+    sns.histplot(df_lencoder[column], kde=True, bins=30)
+    plt.title(f'Distribution of {column}')
+ 
+plt.tight_layout()
+plt.show()
+
+"""
+OverallQual: sebagian besar data terkonsentrasi di sekitar nilai tengah dengan pola multimodal (beberapa puncak), 
+             dan sedikit miring ke kanan karena adanya ekor data hingga ke nilai tinggi.
+
+YearBuilt: distribusi condong ke kiri (left-skewed), menunjukkan proporsi rumah yang dibangun lebih baru jauh lebih dominan 
+           dibandingkan rumah-rumah lama.
+
+LotArea: distribusi mendekati normal (unimodal, simetris), namun terdapat beberapa outlier yang signifikan pada sisi kanan 
+         (lot area yang sangat besar).
+
+SaleType: kategori tertentu mendominasi distribusi, menunjukkan preferensi atau pola tertentu dalam tipe penjualan.
+
+SaleCondition: mirip dengan SaleType, beberapa kondisi penjualan lebih umum dibandingkan lainnya.
+
+"""
